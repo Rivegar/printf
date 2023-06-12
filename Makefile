@@ -6,34 +6,45 @@
 #    By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 10:01:21 by arivero-          #+#    #+#              #
-#    Updated: 2023/05/09 10:16:53 by arivero-         ###   ########.fr        #
+#    Updated: 2023/06/12 15:11:32 by arivero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-RM = rm -f
+NAME = libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
+AR = ar
+ARFLAGS = rcs
+RM = rm -rf
 
 SRC = ft_printf.c
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = obj
+OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
-NAME = libftprintf.a
-LIBFTNAME = libft.a
-LIBFTDIR = ./libft
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-all: $(NAME)
+$(OBJ_DIR)/%.o:	%.c
+						$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) | libft
-	ar rcs $(NAME) $(OBJ) $(LIBFTDIR)/*.o
+all:	$(NAME)
 
-libft:
-	make -C $(LIBFTDIR)
+$(NAME):	$(LIBFT)	$(OBJ_DIR)	$(OBJS)
+			cp	$(LIBFT) $(NAME)
+				$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR) all
+$(OBJ_DIR):
+	mkdir -p $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJ) $(LIBFTDIR)/*.o
+	make -C $(LIBFT_DIR) clean
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(NAME)
+			make -C $(LIBFT_DIR) fclean
+			$(RM) $(NAME)
 
 re: fclean all
 

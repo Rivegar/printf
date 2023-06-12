@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:08:43 by arivero-          #+#    #+#             */
-/*   Updated: 2023/05/09 11:56:03 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/06/12 15:18:31 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 int	ft_printchar(char c)
 {
 	ft_putchar_fd(c, 1);
-	return(1);
+	return (1);
 }
