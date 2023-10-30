@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:22:03 by arivero-          #+#    #+#             */
-/*   Updated: 2023/10/30 10:13:23 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:08:39 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static int	ft_printformat(va_list args, const char *format)
 	else if (*format == 's')
 		written += ft_printstr(va_arg(args, char *));
 	else if (*format == 'p')
-		written += ft_printhex((unsigned int)va_arg(args, void *), 0);
+		written += ft_printptr(va_arg(args, unsigned long));
 	else if (*format == 'd' || *format == 'i')
 		written += ft_printnbr(va_arg(args, int));
 	else if (*format == 'u')
 		written += ft_printnbr(va_arg(args, unsigned int));
 	else if (*format == 'x')
-		written += ft_printhex(va_arg(args, unsigned int), 0);
+		written += ft_printhex(va_arg(args, unsigned long long), 0);
 	else if (*format == 'X')
 		written += ft_printhex(va_arg(args, unsigned int), 1);
 	else if (*format == '%')

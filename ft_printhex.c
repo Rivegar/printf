@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 10:07:12 by arivero-          #+#    #+#             */
-/*   Updated: 2023/10/30 10:16:36 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/10/30 13:08:48 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static void	ft_putnbr_base(unsigned int n, char *base)
 int	ft_printhex(unsigned int n, int ucase)
 {
 	unsigned int	nb;
-	size_t			i;
-	char			*base;
+	size_t	i;
+	char	*base;
 
 	base = "0123456789abcdef";
 	if (ucase)
