@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/30 10:07:12 by arivero-          #+#    #+#             */
+/*   Updated: 2023/10/30 10:16:36 by arivero-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include "./libft/libft.h"
+#include <stddef.h>
 
 static void	ft_putnbr_base(unsigned int n, char *base)
 {
@@ -15,17 +28,15 @@ static void	ft_putnbr_base(unsigned int n, char *base)
 		ft_putchar_fd(base[n], 1);
 }
 
-
-int ft_printhex(unsigned int n, int ucase)
+int	ft_printhex(unsigned int n, int ucase)
 {
-	unsigned int nb;
-	size_t i;
-	char *base;
+	unsigned int	nb;
+	size_t			i;
+	char			*base;
 
 	base = "0123456789abcdef";
 	if (ucase)
 		base = "0123456789ABCDEF";
-
 	nb = n;
 	i = 1;
 	while (nb >= 16)
