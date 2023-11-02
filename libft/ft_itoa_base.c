@@ -1,21 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 11:58:08 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 11:23:50 by arivero-         ###   ########.fr       */
+/*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
+/*   Updated: 2023/11/02 11:32:15 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "./libft/libft.h"
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_printptr(unsigned long num)
+char	*ft_itoa_base(unsigned long number, char *base)
 {
-	ft_putstr_fd("0x", 1);
-	return (ft_printhexl(num) + 2);
+	unsigned long	num;
+	unsigned long	len;
+	char	*str;
+
+	len = 0;
+	num = number;
+	while (number)
+	{
+		len++;
+		number /= 16;
+	}
+	if (num == 0)
+		len++;
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	while (num != 0 || len)
+	{
+		str[--len] = base[num % 16];
+		num /= 16;
+	}
+	return (str);
 }

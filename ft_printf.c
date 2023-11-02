@@ -6,12 +6,13 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:22:03 by arivero-          #+#    #+#             */
-/*   Updated: 2023/10/30 13:08:39 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/02 11:34:31 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
+#include <stddef.h>
 
 static int	ft_printformat(va_list args, const char *format)
 {
@@ -29,9 +30,9 @@ static int	ft_printformat(va_list args, const char *format)
 	else if (*format == 'u')
 		written += ft_printnbr(va_arg(args, unsigned int));
 	else if (*format == 'x')
-		written += ft_printhex(va_arg(args, unsigned long long), 0);
+		written += ft_printhexl(va_arg(args, unsigned int));
 	else if (*format == 'X')
-		written += ft_printhex(va_arg(args, unsigned int), 1);
+		written += ft_printhexu(va_arg(args, unsigned int));
 	else if (*format == '%')
 		written += ft_printchar('%');
 	return (written);

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printptr.c                                      :+:      :+:    :+:   */
+/*   ft_printhexu.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/30 11:58:08 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 11:23:50 by arivero-         ###   ########.fr       */
+/*   Created: 2023/10/30 10:07:12 by arivero-          #+#    #+#             */
+/*   Updated: 2023/11/02 11:19:41 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "./libft/libft.h"
-#include <stddef.h>
 
-int	ft_printptr(unsigned long num)
+int	ft_printhexu(unsigned long n)
 {
-	ft_putstr_fd("0x", 1);
-	return (ft_printhexl(num) + 2);
+	char	*str;
+	size_t	i;
+	char	*base;
+
+	base = "0123456789ABCDEF";
+	str = ft_itoa_base(n, base);
+	i = 0;
+	ft_putstr_fd(str, 1);
+	i = ft_strlen(str);
+	free (str);
+	return (i);
 }

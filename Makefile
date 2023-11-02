@@ -6,7 +6,7 @@
 #    By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 10:01:21 by arivero-          #+#    #+#              #
-#    Updated: 2023/10/30 12:05:50 by arivero-         ###   ########.fr        #
+#    Updated: 2023/11/02 11:11:33 by arivero-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ AR = ar
 ARFLAGS = rcs
 RM = rm -rf
 
-SRC = ft_printf.c ft_printchar.c ft_printstr.c ft_printnbr.c ft_printhex.c ft_printptr.c
+SRC = ft_printf.c ft_printchar.c ft_printstr.c ft_printnbr.c ft_printhexl.c ft_printhexu.c ft_printptr.c
 OBJ_DIR = obj
 OBJS = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
