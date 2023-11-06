@@ -6,7 +6,7 @@
 /*   By: arivero- <arivero-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 12:22:03 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/02 11:34:31 by arivero-         ###   ########.fr       */
+/*   Updated: 2023/11/06 12:46:50 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_printformat(va_list args, const char *format)
 	else if (*format == 'd' || *format == 'i')
 		written += ft_printnbr(va_arg(args, int));
 	else if (*format == 'u')
-		written += ft_printnbr(va_arg(args, unsigned int));
+		written += ft_printunbr(va_arg(args, unsigned int));
 	else if (*format == 'x')
 		written += ft_printhexl(va_arg(args, unsigned int));
 	else if (*format == 'X')
@@ -63,12 +63,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (written);
 }
-
-/*#include <stdio.h>
-
-int main(void)
-{
-	ft_printf("%s", "Hola");
-	printf("%u", -1);
-	return (0);
-}*/

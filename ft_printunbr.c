@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_printunbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arivero- <arivero-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 09:24:32 by arivero-          #+#    #+#             */
-/*   Updated: 2023/11/06 10:42:48 by arivero-         ###   ########.fr       */
+/*   Created: 2023/11/06 09:07:01 by arivero-          #+#    #+#             */
+/*   Updated: 2023/11/06 10:57:01 by arivero-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+#include "./libft/libft.h"
 
-char	*ft_itoa_base(unsigned long number, char *base)
+int	ft_printunbr(unsigned int n)
 {
-	unsigned long	num;
-	unsigned long	len;
-	char			*str;
+	int	count;
 
-	len = 0;
-	num = number;
-	while (number)
-	{
-		len++;
-		number /= 16;
-	}
-	if (num == 0)
-		len++;
-	str = malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (NULL);
-	str[len] = '\0';
-	while (num != 0 || len)
-	{
-		str[--len] = base[num % 16];
-		num /= 16;
-	}
-	return (str);
+	count = 0;
+	count = ft_putunbr(n);
+	return (count);
 }
